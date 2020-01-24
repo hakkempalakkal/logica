@@ -42,7 +42,7 @@ class Supplierexpense_Controller extends CI_Controller {
 		$result['permission']=$this->Login_model->select_all_menu($user_id);
         $result['job']=$this->Supplier_expensemodel->select_all_job();
         $result['jobdata']=$this->Supplier_expensemodel->select_job_details($id);
-      
+		$result['currencylist']=$this->Supplier_expensemodel->list_currency();
         $result['code']=$this->Supplier_expensemodel->selectcode();
 		$this->load->view('includes/header',$user_image);
 		$this->load->view('includes/navigation',$result,$user_image);
@@ -108,7 +108,7 @@ public function supplier_expense_details()
        	$user_image['values']=$res[0]->user_image;
 		$result['permission']=$this->Login_model->select_all_menu($user_id);
 		// $data['bank']=$this->Supplier_expensemodel->select_all_bank();
-
+		$data['currencylist']=$this->Supplier_expensemodel->list_currency();
 		$data['expensedata']=$this->Supplier_expensemodel->editexpenseedetails($invid);
 		// var_dump($data['expensedata']);
 		// die();
@@ -153,7 +153,8 @@ public function supplier_expense_details()
 			
 		}
 	}
-echo $result;
+	echo json_encode($result);
+// echo $result;
 	}
 
 

@@ -167,20 +167,4 @@ public function updateJobinvoicemaster($Id,$data_array)
       
 
    }
-   
-   public function change_invoice_status($invoicemasteid)
-   {
-      $this->db->set('Status',"Posted" );
-      $this->db->where('InvoiceMasterId', $invoicemasteid);
-      $this->db->update('jm_invoicemaster');
-      return 1;
-   }
-   public function select_currency()
-   {
-      $this->db->select('currency');
-$this->db->from('mst_currency');
-$query = $this->db->get();
-$result = $query->result();
-return $result;
-   }
 }

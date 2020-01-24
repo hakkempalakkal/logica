@@ -67,13 +67,6 @@
       
               </ul>
             </li>
-            
-           
-            <?php 
-          
-          // if (in_array("manage master",$permission))
-          // { 
-             ?>
             <li class="treeview">
               <a href="#">
                 <i class=" fa fa-home"></i> <span>Master </span> <i class="fa fa-angle-left pull-right"></i>
@@ -91,45 +84,34 @@
 
               </ul>
             </li>
-            <?php
-        // }
-        ?>
             <li class="treeview">
               <a href="#">
                 <i class=" fa fa-exchange"></i> <span>Transaction </span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
               <li><a href="<?php echo base_url(); ?>job"><i class="fa fa-circle-o"></i>Job </a></li>
-              
+        
               </ul>
             </li>
             
            
             <li class="treeview">
               <a href="<?php echo base_url(); ?>job-search">
-                <i class=" fa fa-search"></i> <span>Job View </span> <i class=" pull-right"></i>
+                <i class=" fa fa-search"></i> <span>Job View </span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <!-- <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i>Search Job </a></li>
-               <li><a href="#"><i class="fa fa-circle-o"></i>Job Profile </a></li>
-               
-              
-              </ul> -->
+             
             </li>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>supplier-search">
-                <i class="fa fa-search"></i> <span>Supplier View </span> <i class=" pull-right"></i>
+                <i class="fa fa-search"></i> <span>Supplier View </span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <li class="treeview">
-              <a href="<?php echo base_url(); ?>list-supplier">
-                <i class="fa fa-search"></i> <span>List Supplier</span> <i class=" pull-right"></i>
+           
+            </li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>client-search">
+                <i class="fa fa-search"></i> <span>Client View </span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <!-- <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i>Search Supplier </a></li>
-               <li><a href="#"><i class="fa fa-circle-o"></i>Supplier Profile  </a></li>
-              
-              
-              </ul> -->
+             
             </li>
             <li class="treeview">
               <a href="#">
@@ -145,7 +127,7 @@
               
               </ul>
             </li>
-            <li class="treeview ">
+            <li class="treeview">
               <a href="#">
                 <i class=" fa fa-credit-card"></i> <span>Accounts </span> <i class="fa fa-angle-left pull-right"></i>
               </a>

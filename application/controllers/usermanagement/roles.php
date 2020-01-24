@@ -60,8 +60,8 @@ class roles extends CI_Controller {
 				$this->Roles_model->adduserpermission($row);
 			
 			}
-		// echo json_encode('success' );
-		echo 'success';
+
+		 echo 'success';
 		
 	}	
 	public function edit()

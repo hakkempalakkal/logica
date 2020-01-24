@@ -17,7 +17,11 @@
     box-shadow: 0 0px 1px rgba(0,0,0,0.1);
     border-radius: 3px;
 }
+.hidden{
 
+visibility: hidden
+
+}
 .tab-pane{
   min-height:120px;
   border-bottom:solid 1px #f4f4f4;
@@ -71,7 +75,7 @@
                 <p><small>Port Details</small></p>
             </div>
             <div class="stepwizard-step col-xs-2"> 
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" >3</a>
+                <a href="#step-3" onclick="jobdetails();" type="button" class="btn btn-default btn-circle" >3</a>
                 <p><small>Plannes/Consignment</small></p>
             </div>
             <div class="stepwizard-step col-xs-2"> 
@@ -126,7 +130,7 @@
             <div class=" row">
             <div class="form-group  col-md-3">
                     <label class="control-label ">Number</label>
-                    <input type="hidden" name="id" id="id"  value="" />
+                    <input type="hidden" name="id" id="id"  value="<?php  echo $values[0]->JobId; ?>" />
                     <input type="hidden" name="type" id="type"  value="" />
                     <input type="text" id="code"  name="code" class="form-control" placeholder="<?php echo $code[0]->Number+1;?>" readonly="readonly" value="<?php echo $code[0]->Number+1;?>">
                 </div>
@@ -150,13 +154,16 @@
                 </div>
                 <div class="form-group col-md-4">
                       <label for="exampleInputname1">Client Name</label>
+                      <input type="hidden" name="client_id" id="client_id"  value="" />
                       <select class="form-control" name="client_name" id="client_name" value="--Select Type--">
                       <option value="select">--Select Type--</option>  
                       <?php 
 
 foreach($clientlist as $client)
 { 
-  echo '<option value="'.$client->name.'">'.$client->name.'</option>';
+  echo '<option value="'.$client->name.'" id="'.$client->id.'">'.$client->name.'</option>';
+  
+
 }
 ?>
                       
@@ -200,7 +207,19 @@ foreach($clientlist as $client)
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Carrier</label>
-                    <input maxlength="100" type="text"  id="Carrier_air" required="required" class="form-control" placeholder=" Carrier" />
+                    <!-- <input maxlength="100" type="text"  id="Carrier_air" required="required" class="form-control" placeholder=" Carrier" /> -->
+                    <select class="form-control" name="Carrier_air" id="Carrier_air" value="--Select Type--">
+                      <option value="select">--Select Type--</option>  
+                      <?php 
+
+foreach($carrierlist as $carrier)
+{ 
+  echo '<option value="'.$carrier->name.'" id="'.$carrier->id.'">'.$carrier->name.'</option>';
+  
+
+}
+?>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">PO no. </label>
@@ -242,7 +261,19 @@ foreach($clientlist as $client)
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Carrier</label>
-                    <input maxlength="100" type="text" id="Carrier_sea" required="required" class="form-control" placeholder=" Carrier" />
+                    <!-- <input maxlength="100" type="text" id="Carrier_sea" required="required" class="form-control" placeholder=" Carrier" /> -->
+                    <select class="form-control" name="Carrier_sea" id="Carrier_sea" value="--Select Type--">
+                      <option value="select">--Select Type--</option>  
+                      <?php 
+
+foreach($carrierlist as $carrier)
+{ 
+  echo '<option value="'.$carrier->name.'" id="'.$carrier->id.'">'.$carrier->name.'</option>';
+  
+
+}
+?>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">PO no. </label>
@@ -302,7 +333,19 @@ foreach($clientlist as $client)
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Carrier</label>
-                    <input maxlength="100" type="text" id="Carrier_transport"  required="required" class="form-control" placeholder=" Carrier" />
+                    <!-- <input maxlength="100" type="text" id="Carrier_transport"  required="required" class="form-control" placeholder=" Carrier" /> -->
+                    <select class="form-control" name="Carrier_transport" id="Carrier_transport" value="--Select Type--">
+                      <option value="select">--Select Type--</option>  
+                      <?php 
+
+foreach($carrierlist as $carrier)
+{ 
+  echo '<option value="'.$carrier->name.'" id="'.$carrier->id.'">'.$carrier->name.'</option>';
+  
+
+}
+?>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">PO no. </label>
@@ -347,7 +390,19 @@ foreach($clientlist as $client)
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Carrier</label>
-                    <input maxlength="100" type="text" id="Carrier_land" required="required" class="form-control" placeholder=" Carrier" />
+                    <!-- <input maxlength="100" type="text" id="Carrier_land" required="required" class="form-control" placeholder=" Carrier" /> -->
+                    <select class="form-control" name="Carrier_land" id="Carrier_land" value="--Select Type--">
+                      <option value="select">--Select Type--</option>  
+                      <?php 
+
+foreach($carrierlist as $carrier)
+{ 
+  echo '<option value="'.$carrier->name.'" id="'.$carrier->id.'">'.$carrier->name.'</option>';
+  
+
+}
+?>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">PO no. </label>
@@ -433,7 +488,7 @@ foreach($userlist as $user)
                 </div>  
             </div>
 
-                <button class="btn btn-primary nextBtn pull-right" onclick="update();" type="button">Next</button>
+                <button class="btn btn-primary nextBtn pull-right" onclick="update();" type="button" >Next</button>
             </div>
 </div>
         
@@ -444,56 +499,68 @@ foreach($userlist as $user)
          </div>
             <div class="panel-body">
           <section class="content">
+
+        
           <div class="col-md-10">
           <h4 class="box-title">Job</h4>
           <div class="box box-primary">
           <div class="box-header with-border">
           <div class="box-body"> 
+              
                <div class="form-group col-md-1">
-                    <label class="control-label"></label>
-                    <input maxlength="100"  onchange="getdata();" type="text" id="desc_code" required="required" class="form-control" placeholder=" code" />
+              
+                    <input type="hidden" id="estimate_code"  name="code" class="form-control" placeholder="<?php echo $codes[0]->estimate_no+1;?>" readonly="readonly" value="<?php echo $codes[0]->estimate_no+1;?>">
+                
+                    <label class="control-label">Code</label>
+                    <input maxlength="100"  onchange="getdata();" type="text" id="desc_code"  class="form-control" placeholder=" code" />
                 </div>
           <div class="form-group col-md-2">
                     <label class="control-label">Description</label>
-                    <input maxlength="100" type="text" id="description_job" required="required" class="form-control" placeholder=" Description" value=""/>
+                    <input maxlength="100" type="text" id="description_job"  class="form-control" placeholder=" Description" value=""/>
+                    <input  type="hidden" id="description_id"  class="form-control" value="<?php  echo $values[0]->JobId; ?>"/>
                 </div>
                 <div class="form-group col-md-2">
                     <label class="control-label">Unit Price</label>
-                    <input maxlength="100" type="text" id="unitprice" required="required" class="form-control " placeholder=" unit price" />
+                    <input maxlength="100" type="text" id="unitprice"  class="form-control " placeholder=" unit price" />
                 </div>
-                <div class="form-group col-md-1">
+                <div class="form-group col-md-2">
                 <label class="control-label"></label>
                       <select class="form-control" id="unit_price" name="unit_price"  value="--Select Type--">
                       <option value="bank">--Select Type--</option>
-                        <option value="INR">INR</option>
-                        <option value="EUR">EUR</option>
-                        <option value="USD">USD</option>
-                        <option value="AED">AED</option>
+                      <?php 
+
+foreach($currencylist as $currency)
+{ 
+  echo '<option value="'.$currency->currency.'" id="'.$currency->id.'">'.$currency->currency.'</option>';
+  
+
+}
+?>
                       </select>
                 </div>  
                 <div class="form-group col-md-2">
                     <label class="control-label">Conv.Factor</label>
-                    <input maxlength="100" type="text" id="conv_factor" required="required" class="form-control " placeholder=" conv.factor" />
+                    <input maxlength="100" type="text" id="conv_factor" class="form-control " placeholder=" conv.factor" />
                 </div>
                 <div class="form-group col-md-2">
                     <label class="control-label">Quantity</label>
-                    <input maxlength="100" type="text" id="quantity" required="required" class="form-control " placeholder=" quantity" />
+                    <input maxlength="100" type="text" id="quantity"  class="form-control " placeholder=" quantity" />
                 </div>
                 <div class="form-group col-md-1">
                     <label class="control-label">VAT</label>
-                    <input maxlength="100" type="text" id="vat" required="required" class="form-control" placeholder=" vat" />
+                    <input maxlength="100" type="text" id="vat"  class="form-control" placeholder=" vat" />
                 </div>
-                <div class="form-group col-md-1">
+                <!-- <div class="form-group col-md-1">
                 <label for="exampleInputname1">Unit </label>
                       <select class="form-control" id="unit" name="unit"  value="--Select Type--">
-                      <option value="bank">--Select Type--</option>
+                      <option value="">--Select Type--</option>
                         <option value="EACH">EACH</option>
                         <option value="KG">KG</option>
                         <option value="CubicMeter">CubicMeter</option>
                         <option value="CubicFoot">CubicFoot</option>
                       </select>
-                </div>  
-                <input type="submit" name="add" value="ADD" onclick="view_data();" id="add" class="btn btn-success" style="float: right;">
+                </div>   -->
+                <input type="submit" name="add" value="ADD"  id="add" class="btn btn-success" style="float: right;">
           </div>
       <div class="col-md-12">
         <div>    
@@ -507,20 +574,14 @@ foreach($userlist as $user)
 		           <th>Description</th>
 		           <th>UnitPrice</th>
 		           <th>Quantity</th>
-                   <th>Vat</th>
-                   <th>Unit</th>
+                   <th>SubTotal</th>
+                   <th>VAT</th>
                    <th>TOTAL</th>
-                    <th></th>
+                   <th></th>
 	            </tr>
                 </thead>
-                <tbody> 
-                <tr>
-                <td id="desc"> </td>
-                <td id="unitprc"></td>
-                <td id="qunty"></td>
-                <td id="vatno"></td>
-                <td id="unitp"></td>
-                </tr>               
+                <tbody class="dataadd"> 
+                
 	            </tbody>
                 <tfoot>
                 </tfoot>
@@ -529,11 +590,11 @@ foreach($userlist as $user)
                  <div id="ContentPlaceHolder1_upTotals">
                          <div style="float: right;">
                                     <span id="ContentPlaceHolder1_lbl">TOTAL</span>        
-                                    <input name="total" type="text" value="0" readonly="readonly" id="total" class="form-control " style="width: 100%;">
+                                    <input name="total" type="text" value="" readonly="readonly" id="total" class="form-control " style="width: 100%;">
                                     <span id="ContentPlaceHolder1_Label1">Vat Total</span>        
-                                    <input name="vat_total" type="text" value="0" readonly="readonly" id="vat_total" class="form-control " style="width: 100%;"> 
+                                    <input name="vat_total" type="text" value="" readonly="readonly" id="vat_total" class="form-control " style="width: 100%;"> 
                                     <span id="ContentPlaceHolder1_Label2">Grand Total</span>        
-                                    <input name="grand_total" type="text" value="0" readonly="readonly" id="grand_total" class="form-control " style="width: 100%;">                 
+                                    <input name="grand_total" type="text" value="" readonly="readonly" id="grand_total" class="form-control " style="width: 100%;">                 
 </div>
             </div>
             <!-- /.box-body -->
@@ -552,6 +613,10 @@ foreach($userlist as $user)
 </div>
 </div>
 
+
+
+
+
 <div class="col-md-2">
 <h4 class="box-title">Job Description </h4>
         <div class="box box-primary">
@@ -559,29 +624,30 @@ foreach($userlist as $user)
             </div>
             <div class="box-body">
               <strong><i class=""></i> Job</strong>
-              <p class="text-muted">
-               1
+              <p class="text-dark" id="job_code">
               </p>
               <hr>
               <strong><i class=""></i> Shipper</strong>
-              <p class="text-muted">Malibu, California</p>
+              <p class="text-dark" id="shipper_name"> </p>
               <hr>
               <strong><i class=""></i> Consignee</strong>
-              <p class="text-muted">sdfsf </p>
+              <p class="text-dark" id="consignee_name"> </p>
               <hr>
               <strong><i class=""></i> Client Company</strong>
-              <p>palmtrix </p>
+              <p class="text-dark" id="company_name"> </p>
               <hr>
               <strong><i class=""></i>  Shipment Terms</strong>
-              <p>dsg </p>
+              <p class="text-dark" id="shpmnt_terms"> </p>
               <hr>
               <strong><i class=""></i> Consignment description</strong>
-              <p>Lorem </p>
-             
+              <p class="text-dark" id="consign_desc"> </p>
+              <!-- <hr>
+              <strong><i class="" ></i>Date</strong>
+              <p   class="text-dark" id="consign_date"> </p> -->
 </div>
-<input type="submit" name="submit" value="Submit" id="submit" class="btn btn-success"  >
+
         </div>
-        
+        <input type="submit" name="submit" onclick="add_estimate();" value="Submit" id="submit" class="btn btn-success"  >    
 </div>
                 <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
                 
@@ -591,89 +657,18 @@ foreach($userlist as $user)
         </div>
         
 
-        <!-- <div class="col-md-12 ">
-        <div class="panel panel-primary setup-content" id="step-4">
-            <div class="panel-heading">
-                 <h3 class="panel-title">Charge Details</h3>
-            </div>
-            <div class="panel-body">
-            <div class=" row">
-            <div class="form-group  col-md-12">
-                    <label class="control-label ">View Details</label>
-                   
-                    <table class="table table-striped table-hover indexer" id="table-permissionList">
-                <thead>
-                  <tr>
-                  <th> Code</th>
-                  <th> Client</th>
-                  <th> Actual Weight</th>
-                 <th> Chargeable Weight</th>
-                 <th> Weight</th>
-                  </tr>
-                  <thead>
-                  <tbody>
-
-                  <tr>
-                  <td class="text-center">1</td>  
-                  <td class="text-center">sana</td>
-                  <td class="text-center">80</td>
-                  <td class="text-center">40</td>
-                  <td class="text-center">40</td>   
-                      
-                  </tr>
-                  <tbody>
-              </table>
-           
-                </div>
-               
-</div>
-                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
-        </div>
-            </div>
-        </div> -->
+      
         <div class="col-md-11 ">
         <div class="panel panel-primary setup-content" id="step-4" >
             <div class="panel-heading">
-                 <h3 class="panel-title">Summary</h3>
+                 <h3 class="panel-title">Job Details</h3>
             </div>
             <div class="panel-body">
             <div class=" row">
             <div class="form-group  col-md-12">
-                    <label class="control-label ">View Details</label>
+                    <!-- <label class="control-label ">View Job Details</label><br><br> -->
+                  
                    
-                    <table class="table table-striped table-hover indexer" id="table-permissionList">
-                <thead>
-                  <tr>
-                <th> Code</th>
-                 <th> Date</th>
-                 <th> Shipper</th>
-                 <th> Consignee</th>
-                 <th> Client</th>
-                 <th> Type</th>
-                 <th> Shipment Terms</th>
-                 <th> Mode</th>
-                 <th>Cargo Description</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php 
-foreach ($values as $key => $value1)
- {  
-	?>
-                  <tr>
-                  <td class="text-center"><?php echo $value1->Number;?></td>
-                  <td class="text-center"><?php echo $value1->Date;?></td>     
-                  <td class="text-center"><?php echo $value1->Shipper;?></td>
-                  <td class="text-center"><?php echo $value1->Consignee;?></td>
-                  <td class="text-center"><?php echo $value1->client_name;?></td>     
-                  <td class="text-center"><?php echo $value1->shipment_type;?></td>
-                  <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
-                  <td class="text-center"><?php echo $value1->Type;?></td>     
-                  <td class="text-center"><?php echo $value1->CargoDescription;?></td>  
-                  </tr>
- <?php } ?>
-                  <tbody>
-              </table>
            
                 </div>
               </div>
@@ -687,7 +682,7 @@ foreach ($values as $key => $value1)
 
 <script src="<?php echo base_url(); ?>/assets/js/moment.js"></script>
 <script src="<?php echo base_url(); ?>/assets/user_scripts/transaction/job_script.js"></script>
-<script src="<?php echo base_url(); ?>/assets/user_scripts/transaction/plannes_script.js"></script>
+<!-- <script src="<?php echo base_url(); ?>/assets/user_scripts/transaction/plannes_script.js"></script> -->
 <script src="<?php echo base_url(); ?>/assets/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>   
 <script type="text/javascript">
 //show selected div only 
@@ -745,9 +740,18 @@ function hideall()
         autoclose: true,
       };
       date_input.datepicker(options);
+     
+     
+
     })
+
+
+    
+
+
 </script>
 <script type="text/javascript">
+
     $(document).ready(function(){
   
 
@@ -773,8 +777,6 @@ var obj=[];
           });
 
   //var obj=[{"value":1,"label":'anu'},{"value":2,"label":'rejina'}];
-  
-                      
 
 });
 </script>
@@ -810,12 +812,79 @@ var obj=[];
                       
 
 });
-</script>
-<!-- <script>
- $(document).ready(function(){
-    $('#add').click(function(){
-        
-document.getElementById("#desc").innerHTML=document.getElementById("#description").innerHTML;
+
+ $(function () {
+  
+  $("#add").click(function () {
+    
+   if($('#unitprice,#unit_price,#conv_factor,#quantity,#vat').val() == ''){
+      alert('Insert all fields');
+   }
+else{
+    insertRow();
+}
+  });
+  
+});
+$(document).on("click", '.rmvbutton', function() {
+         
+         $(this).closest("tr").remove();
+         calculates();
+     return false;
+     });
+function insertRow() {
+
+    var descID=0;
+    var desc= $("#description_job").val();
+    var price=parseFloat($("#unitprice").val());
+    var price1=parseFloat($("#unitprice").val());
+    var conv_factor=parseFloat($("#conv_factor").val());
+     var price = price *  conv_factor;
+
+    var quantity=parseFloat($("#quantity").val());
+    var vatAmount=parseFloat($("#vat").val());
+   var SubTotal=quantity*price;
+ var taxvalue=((SubTotal * vatAmount) / 100);
+ var total=SubTotal+taxvalue;
+ var unit_val=$("#unit_price").val();
+ var desc_id=$("#description_id").val();
+
+$(".dataadd").append( "<tr class='estmt_details'><td class='desc'>"+desc+" </td> <td class='price_val'>"+price1+"</td> <td class='quanty'>"+quantity+"</td> <td class='subtotalval_data'>"+SubTotal+"</td> <td class='taxval_data'>"+taxvalue+"</td>  <td class='totalval_data'>"+total+"</td> <td class='hidden unittype'>"+unit_val+"</td><td class='hidden convfact'>"+conv_factor+"</td><td class='hidden desc_id'>"+desc_id+"</td><td><a class='rmvbutton'><i class='fa fa-trash-o'></i></a></td>  </tr>" );
+
+calculates();
+
+   
+}
+
+//total
+
+function calculates() {
+    var totsub_val=0;
+    $(".subtotalval_data").each(function(td) {
+        var s = parseFloat($(this).html());
+        totsub_val=parseFloat(totsub_val)+s;
     });
- });
-</script> -->
+
+    var taxval_data_val=0;
+    $(".taxval_data").each(function(td) {
+        var s = parseFloat($(this).html());
+        taxval_data_val=parseFloat(taxval_data_val)+s;
+    });
+
+    var totalval_data_val=0;
+    $(".totalval_data").each(function(td) {
+        var s = parseFloat($(this).html());
+        totalval_data_val=parseFloat(totalval_data_val)+s;
+    });
+   
+
+    $("#total").val(totsub_val.toFixed(2));
+
+   $("#vat_total").val(taxval_data_val.toFixed(2));
+   $("#grand_total").val(totalval_data_val.toFixed(2));
+
+
+}
+
+
+</script>

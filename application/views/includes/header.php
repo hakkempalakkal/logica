@@ -19,7 +19,7 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="<?php echo base_url(); ?>/assets/css/create_user.css" rel="stylesheet" type="text/css" />
-
+    <link href="<?php echo base_url(); ?>/assets/css/wizard.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>/assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
@@ -28,9 +28,15 @@
     <link href="<?php echo base_url(); ?>/assets/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>/assets/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>/assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-
+   <!-- //accounts -->
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/usermanagement/user_script.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/radio_button.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/ledger_group.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/ledger.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/accounts_entry.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/day_book.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/accounts_entry.js"></script>
     <!-- jQuery 2.1.3 -->
-    <link href="<?php echo base_url(); ?>/assets/css/wizard.css" rel="stylesheet" type="text/css" />
       <script src="<?php echo base_url(); ?>/assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,13 +46,7 @@
     <![endif]-->
     <script src="<?php echo base_url(); ?>/assets/user_scripts/usermanagement/user_script.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/radio_button.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/ledger_group.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/ledger.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/accounts_entry.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/day_book.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>/assets/js/wizard.js"></script> -->
 
-    <script src="<?php echo base_url(); ?>/assets/user_scripts/accounts/accounts_entry.js"></script>
 <style>
 .img-responsive{
 border: 1px solid #ddd;

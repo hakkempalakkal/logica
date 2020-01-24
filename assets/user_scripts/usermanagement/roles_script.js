@@ -26,7 +26,6 @@
 
     function add()
     {
-      
       var permissionDatas=[];
       readarray.forEach(function(item) {
         permissionData = {
@@ -57,8 +56,8 @@
       dataType: 'JSON'
       });
       request.done( function ( data ) {
-       console.log(data);
-      if(!alert('roles Created Successfullyyyyy!')){window.location.href="roles"}
+      //  console.log(data);
+      if(!alert('roles Created Successfully!')){window.location.href="roles"}
       });
       // request.fail( function ( jqXHR, textStatus) {
   
@@ -67,7 +66,7 @@
        
         if (jqXHR.responseText=="success")
         {
-         if(!alert('roles created Successfully......!')){window.location.href="roles"}
+         if(!alert('roles created Successfully!')){window.location.href="roles"}
      
         }
        });
@@ -136,7 +135,7 @@
      {window.location.href="roles"}
       });
       request.fail( function ( jqXHR, textStatus) {
-        alert('roles updated Successfully....!')
+       
        if (jqXHR.responseText=="success")
        {
         if(!alert('roles updated Successfully!')){window.location.href="roles"}

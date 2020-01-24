@@ -17,17 +17,16 @@
                   
                     
                   <div class="row">
-                 
-                    <div class="form-group col-md-6">
-                      <label for="exampleInputname1">Code</label>
-                <input type="text" id="code"  name="code" class="form-control" readonly="readonly" placeholder="<?php echo $code[0]->code+1;?>"  value="<?php echo $code[0]->code+1;?>" >
-                    </div>
-                    <div class="form-group col-md-6 ">
+                  <div class="form-group col-md-6 ">
                       <label>Carrier Type</label>
                       <select class="form-control" name="carrier_type" id="carrier_type" value="">
                         <option value="land">Land</option>
                         <option value="transportation">Transportation</option>
                       </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="exampleInputname1">Code</label>
+                <input type="text" id="code"  name="code" class="form-control" readonly="readonly" placeholder="<?php echo $code[0]->code+1;?>"  value="<?php echo $code[0]->code+1;?>" >
                     </div>
                                 <div class="form-group col-md-6">
                       <label for="exampleInputname1">Name</label>

@@ -1,54 +1,84 @@
 <section class="content">
-<input type="hidden" value="<?php echo base_url(); ?>" id="baseurl"/>
+
       <div class="row">
         <div class="col-md-3">
  <!-- search form -->
-           <!-- <form action="#" method="get"> -->
+           <form action="#" method="get">
             <div class="input-group">
-              <input type="text" name="q" id="q" class="form-control" placeholder="Search..."/>
-               <span class="input-group-btn">
-                <button type="submit" name="search_job" id="search_job" onclick="search_job()" class="btn btn-flat" ><i class="fa fa-search" ></i></button>
+              <input type="text" name="q" class="form-control" placeholder="Search..."/>
+              <span class="input-group-btn">
+                <button type='submit' name='search' id='search-btn' class="btn btn-flat" ><i class="fa fa-search"></i></button>
               </span>
             </div>
-          <!-- </form>  -->
+          </form> 
           <!-- /.search form -->
           <!-- Profile Image -->
-          <h4 class="box-title" id="title">Job Description </h4>
-          <div class="box " id="description">
+          <h4 class="box-title">Job Description </h4>
+          <div class="box ">
             <div class="box-body box-profile">
-            <div class="box-body" >
-               <div class="job"></div>
-               <!-- <input type="hidden" id="client_id"> -->
+            <div class="box-body">
                         <strong><i class=""></i> Job</strong>
-                        <p  id="job_id">
+                        <p class="text-muted" id="job_id">
                            <!-- <?php echo $jobdata[0]->JobId;?> -->
                         </p>
                         <hr>
-                        <input type="hidden" name="client_id" id="client_id" class="form-control" />
-
                         <strong><i class=""></i> Shipper</strong>
-                        <p class="text-muted" id="shipper">   
+                        <p class="text-muted">   
                              <!-- <?php echo $jobdata[0]->Shipper;?> -->
                     </p>
                         <hr>
                         <strong><i class=""></i> Consignee</strong>
-                        <p class="text-muted" id="consignee">  
+                        <p class="text-muted">  
                               <!-- <?php echo $jobdata[0]->Consignee;?>  -->
                             </p>
                         <hr>
-                        <strong><i class=""></i> Client Company </strong>
-                        <p class="text-muted" id="client">  
+                        <strong><i class=""></i> Client </strong>
+                        <p> 
                             <!-- <?php echo $jobdata[0]->client_name;?> -->
                         </p>
                         <hr>
-                        <strong><i class=""></i>Shipment Terms</strong>
-                        <p class="text-muted" id="terms">  
+                        <strong><i class=""></i>Mode</strong>
+                        <p>
                              <!-- <?php echo $jobdata[0]->Type;?> -->
                              </p>
-                        
-                                 <hr>
-                        <strong><i class=""></i>Consignment Description</strong>
-                        <p class="text-muted" id="description">  
+                        <hr>
+                        <strong><i class=""></i>Weight</strong>
+                        <p> 
+                            <!-- <?php echo $jobdata[0]->ActualWeight;?> -->
+                         </p>
+                        <hr>
+                        <strong><i class=""></i>ETA</strong>
+                        <p> 
+                            <!-- <?php echo $jobdata[0]->Eta;?> -->
+                         </p>
+                        <hr>
+                        <strong><i class=""></i>ETD</strong>
+                        <p>
+                            <!-- <?php echo $jobdata[0]->Etd;?> -->
+                        </p>
+                        <hr>
+                        <strong><i class=""></i>MBL/MAWB</strong>
+                        <p>
+                            <!-- <?php echo $jobdata[0]->Mbl;?> -->
+                         </p>
+                        <hr>
+                        <strong><i class=""></i>CARRIER</strong>
+                        <p>
+                            <!-- <?php echo $jobdata[0]->Carrier;?>  -->
+                        </p>
+                        <hr>
+                        <strong><i class=""></i>POL</strong>
+                        <p>
+                            <!-- <?php echo $jobdata[0]->Pol;?> -->
+                        </p>
+                        <hr>
+                        <strong><i class=""></i>POD</strong>
+                        <p>
+                            <!-- <?php echo $jobdata[0]->Pod;?> -->
+                        </p>
+                        <hr>
+                        <strong><i class=""></i>PO NO</strong>
+                        <p>
                             <!-- <?php echo $jobdata[0]->PoNo;?> -->
                         </p>
                      </div>
@@ -65,18 +95,18 @@
             
           <div class="nav-tabs-custom">
           <div class="row">
-               <div class="col-sm-3 col-xs-6 ">
-                  <div class="description-block border-right ">
-                  <span class="description-text ">TOTAL INVOICE</span>
-                   <h5 class=" description-header" id="invtotal" style="color:green;">0.00</h5>
-
+               <div class="col-sm-3 col-xs-6">
+                  <div class="description-block border-right">
+                  <span class="description-text">TOTAL INVOICE</span>
+                    <h5 class="description-header"></h5>
+                   
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                   <span class="description-text">TOTAL EXPENCE</span>
-                    <h5 class="description-header" id="expensetotal" style="color:green;">0.00</h5>
+                    <h5 class="description-header"></h5>
                     
                   </div>
                   <!-- /.description-block -->
@@ -84,19 +114,19 @@
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                   <span class="description-text">INVOICE PAID </span>
-                    <h5 class="description-header" id="invpaid" style="color:green;">0.00</h5>
+                    <h5 class="description-header"></h5>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                   <span class="description-text">AMOUNT DUE </span>
-                    <h5 class="description-header" style="color:red;" id="amountdue">0.00</h5>
+                    <h5 class="description-header"></h5>
                   </div>
                   <!-- /.description-block -->
                 </div>
                </div>
-               <br>
+               <br><br><br>
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="false">Job Ledger</a></li>
               <li class=""><a href="#timeline" data-toggle="tab" aria-expanded="false">Invoice</a></li>
@@ -109,11 +139,13 @@
       <div class="col-md-12">
       <h3 class="box-title"> Job Ledger Report </h3>
       <div class="box">
+           <div class="box-header with-border">
          
+           </div>
          
             
             <div class="box-body">
-               <table class="table table-stripped">
+               <table id="jobledger" class="table table-stripped">
                   <thead>
                      <tr>
                         <th> Sl.no</th>
@@ -125,11 +157,24 @@
                        
                      </tr>
                   </thead>
-                 
-                  <tbody class="ledger">
-                     
-                    
-                  </tbody>
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
                </table>
                          </div>
       </div>
@@ -148,8 +193,8 @@
       <h3 class="box-title"> Generated Invoices </h3>
          <div class="box ">
            <div class="box-header with-border">
-         <input type="submit" onclick="createnewinvoice();" style="float: right; width:150px;" class="btn btn-block btn-success" value="Create new invoice">
-           <!-- <span class="new-button" style="float: right;" onclick="createnewinvoice();"><a href=" " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Invoice </a></span> -->
+         
+           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Invoice </a></span>
            </div>
            
             <div class="box-body">
@@ -160,18 +205,33 @@
                         <th> Sl.no</th>
                         <th> Invoice.no</th>
                         <th> Date</th>
-                        <!-- <th> Particulars</th> -->
+                        <th> Particulars</th>
                         <th> Mode</th>
                         <th> SubTotal</th>
                         <th>  Vat</th>
                         <th> Grand Total</th>
-                        <th >  Action</th>
+
                      </tr>
                   </thead>
-                  <tbody class="dataadd">
-                     
-                  </tbody>
-                  </table>
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
+               </table>
             </div>
          </div>
       </div>
@@ -184,9 +244,8 @@
       <h3 class="box-title"> Credit Note </h3>
          <div class="box ">
            <div class="box-header with-border">
-           <input type="submit" onclick="createcreditnote();" style="float: right; width:150px;" class="btn btn-block btn-success" value="Create Creditnote">
-
-           <!-- <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Creditnote </a></span> -->
+          
+           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Creditnote </a></span>
            </div>
            
             <div class="box-body">
@@ -198,16 +257,29 @@
                         <th> CRN.no</th>
                         <th> Date</th>
                         <th> Customer</th>
-                      
-                        <th colspan="2" style="text-align:center;"> Amount</th>
+                        <th> Mode</th>
+                        <th> Amount</th>
                         
                      </tr>
                   </thead>
-                  <tbody class="creditdata">
-                
-                  </tbody>
-                 
-
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
                </table>
             </div>
          </div>
@@ -222,6 +294,7 @@
          <div class="box ">
            <div class="box-header with-border">
           
+           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;New Payment Receipt </a></span>
            </div>
            
             <div class="box-body">
@@ -235,13 +308,27 @@
                         <th> Doc.#</th>
                         <th> Particulars</th>
                         <th> Ref/Invoice</th>
-                        <th> Amount</th>
+                     
                      </tr>
                   </thead>
-                  <tbody class="paymentreceipt">
-                  
-                  </tbody>
-
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
                </table>
             </div>
          </div>
@@ -259,7 +346,7 @@
          <div class="box ">
            <div class="box-header with-border">
           
-           <input type="submit" onclick="createexpense();" style="float: right; width:150px;" class="btn btn-block btn-success" value="Create new expense">
+           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Post New Expense </a></span>
            </div>
            
             <div class="box-body">
@@ -275,14 +362,27 @@
                         <th> Supplier</th>
                       
                         <th>  Amount#</th>
-                        <th>  Action</th>
-
 
                      </tr>
                   </thead>
-                  <tbody class="postedexpense">
-                   
-                  </tbody>
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
                </table>
             </div>
          </div>
@@ -296,7 +396,7 @@
          <div class="box ">
            <div class="box-header with-border">
            <h3 class="box-title"> Debit Note </h3>
-           <input type="submit" onclick="createdebitnote();" style="float: right; width:150px;" class="btn btn-block btn-success" value="Create Debitnote">
+           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Debitnote </a></span>
            </div>
            
             <div class="box-body">
@@ -316,9 +416,24 @@
                         
                      </tr>
                   </thead>
-                  <tbody class="debitnote">
-                    
-                  </tbody>
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
                </table>
             </div>
          </div>
@@ -332,6 +447,7 @@
          <div class="box">
            <div class="box-header with-border">
            <h3 class="box-title">Supplier Payment  </h3>
+           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Supplier Payment </a></span>
            </div>
            
             <div class="box-body">
@@ -343,16 +459,31 @@
                        
                         <th>Payment Date</th>
                         <th> Doc.#</th>
-                        <!-- <th> Particulars</th>
-                        <th> Ref/Invoice</th> -->
+                        <th> Particulars</th>
+                        <th> Ref/Invoice</th>
                         <th> Supplier</th>
                       
                       <th>  Amount#</th>
                      </tr>
                   </thead>
-                  <tbody class="payment">
-                    
-                  </tbody>
+                  <!-- <tbody>
+                     <?php 
+                        foreach ($values as $key => $value1)
+                         {  
+                        	?>
+                     <tr>
+                        <td class="text-center"><?php echo $value1->Number;?></td>
+                        <td class="text-center"><?php echo $value1->Date;?></td>
+                        <td class="text-center"><?php echo $value1->Shipper;?></td>
+                        <td class="text-center"><?php echo $value1->Consignee;?></td>
+                        <td class="text-center"><?php echo $value1->client_name;?></td>
+                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
+                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
+                        <td class="text-center"><?php echo $value1->Type;?></td>
+                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody> -->
                </table>
             </div>
          </div>
@@ -371,4 +502,3 @@
       <!-- /.row -->
 
     </section>
-    <script src="<?php echo base_url(); ?>/assets/user_scripts/jobsearch/jobsearch.js"></script>

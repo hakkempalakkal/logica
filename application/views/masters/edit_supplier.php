@@ -12,7 +12,7 @@
                     <div class="form-group col-md-6 ">
                       <label for="name">Code</label>
                       <input type="hidden" name="id" id="id"  value="<?php  echo $value[0]->id;?>" />
-                      <input type="text" class="form-control" required id="supplier_code"    readonly="readonly" placeholder="<?php  echo $value[0]->code;?>"  value="<?php  echo $value[0]->code;?>">
+                      <input type="text" class="form-control" required id="supplier_code"   readonly="readonly" placeholder="<?php  echo $value[0]->code;?>"  value="<?php  echo $value[0]->code;?>">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="code">Supplier Name</label>

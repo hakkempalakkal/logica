@@ -56,10 +56,16 @@ class Client extends CI_Controller {
 	public function store()
 	{
 		$postdata=$this->input->post('postData');
-		$result= $this->Client_model->add($postdata);
-		echo 'success';
+		$clientid= $this->Client_model->add($postdata);
+		// var_dump($clientid);
+		// die();
+		// $clientname = $this->Client_model->client_name($clientid);
+		// $accountsid = $this->Client_model->addto_accountsledger($clientname);
+		// $res = $this->Client_model->addto_clientledger($clientid,$accountsid);
+		echo "success";
 		
 	}
+
 	public function edit()
 	{
 		$user_id=	$this->session->userdata('user_id');

@@ -30,9 +30,7 @@ class Job_invoice_controller extends CI_Controller {
 		$result['permission']=$this->Login_model->select_all_menu($user_id);
         $result['bank']=$this->job_invoice_model->select_all_bank();
         $result['jobdata']=$this->job_invoice_model->select_job_details($id);
-		
-		$result['currency']=$this->job_invoice_model->select_currency();
-
+      
         $result['Inv']=$this->job_invoice_model->selectcode();
 		$this->load->view('includes/header',$user_image);
 		$this->load->view('includes/navigation',$result,$user_image);
@@ -92,7 +90,6 @@ public function insert_job_details()
        	$user_image['values']=$res[0]->user_image;
 		$result['permission']=$this->Login_model->select_all_menu($user_id);
 		$data['bank']=$this->job_invoice_model->select_all_bank();
-		$result['currency']=$this->job_invoice_model->select_currency();
 
 		$data['invoicedata']=$this->job_invoice_model->editinvoicedetails($invid);
 		$data['invoice']=$this->job_invoice_model->select_job_invoice_details($invid);
@@ -135,15 +132,6 @@ public function insert_job_details()
 		}
 	}
 echo $result;
-	}
-//to change invoice status 
-public function change_invoice_status($invmasterid)
-	{
-	
-
-		$result=$this->job_invoice_model->change_invoice_status($invmasterid);
-// redirect('invoice-print'/$invmasterid);
-redirect(base_url()."invoice-print/".$invmasterid);
 	}
 
 }

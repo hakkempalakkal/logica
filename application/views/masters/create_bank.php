@@ -26,7 +26,7 @@
                    
                                
                     <div class="form-group col-md-6 ">
-                      <label>Acc Type</label>
+                      <label>Acc Type*</label>
                       <select class="form-control" required name="acc_type" id="acc_type" value="">
                         <option value="savings">Savings</option>
                         <option value="current">Current</option>
@@ -51,7 +51,7 @@
 								
                                 </div>
                                 <div class="form-group col-md-6">
-									<label>Other Information If Any</label>
+									<label>Other Information if any</label>
 									
 										<input type="text"  class="form-control" id="otherinfo" name="otherinfo">
 								

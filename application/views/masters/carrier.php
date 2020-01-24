@@ -1,6 +1,6 @@
 <section class="content-header">
    <h1>
-      carrier details
+  Carrier Master
      
              
            
@@ -23,10 +23,10 @@
     <th>Carrier Name</th>
      <th>Address</th>
      <th>Mobile</th>
-     <th>eEmail</th>
+     <th>Email</th>
      <th>Fax</th>
   
-     <!-- <th>creditlimit</th> -->
+    
      <th>Status</th>
      <th>Action</th>
     </tr>

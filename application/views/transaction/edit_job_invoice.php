@@ -61,12 +61,10 @@
                                  <label class="control-label"></label>
                                  <select class="form-control" id="unit_price" name="unit_price"  value="--Select Type--">
                                     <option value="bank">--Select Type--</option>
-                                  <?php 
-                                  foreach($currency as $key=>$value)
-                                  {
-?>
-                                 <option value="<?php echo $value->currency;?>"><?php echo $value->currency;?></option>
-                                  <?php } ?>
+                                    <option value="INR">INR</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="USD">USD</option>
+                                    <option value="AED">AED</option>
                                  </select>
                               </div>
                               <div class="form-group col-md-1">

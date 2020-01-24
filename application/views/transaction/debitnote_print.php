@@ -144,7 +144,7 @@
                                                 </tr>
                                                
                                                 <tr>
-                                                    <td style="border: 1px solid black;"><b>Awb / Mwb</b><span class="fr">--</span> </td>
+                                                    <td style="border: 1px solid black;"><b>Hawb / Mawb</b><span class="fr">الحب / موب</span> </td>
                                                 </tr>
                                                 <tr>
 
@@ -240,7 +240,7 @@
                                             <td style="border: 1px solid black; border-right: hidden; border-left: hidden;"></td>
                                         </tr>
                                         <tr>
-                                            <td style="border: 1px solid black;"><b>Estimated Time of Departure</b><span class="fr"><b>رقم المورد</b>  </span></td>
+                                            <td style="border: 1px solid black;"><b>Estimated Time of Departure</b><span class="fr"><b>الوقت المتوقع للمغادرة</b>  </span></td>
                                         </tr>
                                         <tr>
 
@@ -251,7 +251,7 @@
                                         </tr>
 
                                            <tr>
-                                            <td style="border: 1px solid black;"><b>Estimated Time of Arrival</b><span class="fr"><b>رقم المورد</b>  </span></td>
+                                            <td style="border: 1px solid black;"><b>Estimated Time of Arrival</b><span class="fr"><b>الوقت المقدر للوصول</b>  </span></td>
                                         </tr>
                                         <tr>
 
@@ -275,7 +275,7 @@
                                 <tr>
                                     <th class="ctr" width="6.5%"><b>Sl No:</b>
                                         <label>
-                                            الرقم السلسل
+                                        SL. لا:
                                         </label>
                                     </th>
                                     <th width="46.2%">Item Description
@@ -290,7 +290,7 @@
                                     <!-- <th width="13.2%">Vat
                                         <label class="rtl">ضريبة القيمة المضافة</label></th> -->
                                     <th width="12.3%">Amount
-                                        <label class="rtl">المبلغ </label>
+                                        <label class="rtl">كمية </label>
                                     </th>
                                 </tr>
                             </thead>
@@ -307,7 +307,7 @@
                                             </td>
                                             <td>
                                                 <span id="rptrDetail_lblDesc_0"><?php echo $value->Description;?></span>
-                                                <span id="rptrDetail_lblDescAr_0" style="float: right;">رسوم الشحن البري </span>
+                                                <!-- <span id="rptrDetail_lblDescAr_0" style="float: right;">رسوم الشحن البري </span> -->
                                             </td>
                                             <td style="text-align: center;">
                                             <?php echo $value->Amount;echo " (".$value->Currency." - ".$value->ConvFactor.")";?> 
@@ -344,7 +344,7 @@
 
                                     </td>
                                     <td colspan="3">Vat Total
-                                        <label class="rtl">ضريبة القيمة المضافة</label></td>
+                                        <label class="rtl">ضريبة القيمة المضافة المجموع</label></td>
                                     <td style="text-align: center;">
                                         <span id="lblVatTotal"> <?php echo $debitdata[0]->Vat;?></span></td>
                                 </tr>
@@ -364,7 +364,7 @@
                                     </td>
 
                                     <td colspan="3" >GRAND TOTAL
-                                        <label class="rtl">المجموع الكلي</label></td>
+                                        <label class="rtl"> المبلغ الإجمالي</label></td>
 
                                     <td  style="text-align: center;">
                                         <span id="lblGrandTotal"> <?php echo $debitdata[0]->GrandTotal;?></span>

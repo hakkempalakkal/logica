@@ -40,22 +40,20 @@ foreach ($value as $key => $value1)
                 <a class="btn btn-sm dropdown-toggle" style="width: 50px;" data-toggle="dropdown" href="#">
                   <i class="fa fa-ellipsis-v"></i> 
                 </a>
-               
+                <ul class="dropdown-menu">
                
       <?php 
              
              if (in_array("update roles", $permission))
              {  ?> 
-              <ul class="dropdown-menu">
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo base_url();?>roles-edit?id=<?php echo $value1->id;?>">Edit</a></li>
-                  </li>  </ul>
-                <?php
+                  <?php
               }
                 ?>
                   <!-- <li role="presentation" class="divider"></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Deactivate</a></li> -->
-              
-             </td>
+                </ul>
+              </li>  </ul></td>
                   </tr>
 <?php 
 }

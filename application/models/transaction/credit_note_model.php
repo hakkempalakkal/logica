@@ -150,4 +150,14 @@ class Credit_note_model extends CI_Model
       $result = $query->result();
       return $result;
    }
+   public function list_currency()
+   {
+   
+   $this->db->select('*');
+   $this->db->from('mst_currency');
+   $query = $this->db->get();
+   $result = $query->result();
+   return $result;
+   
+   }   
 }

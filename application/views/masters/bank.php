@@ -1,6 +1,6 @@
 <section class="content-header">
    <h1>
-      Bank Details
+      Bank Master
      
              
            
@@ -21,7 +21,7 @@
          <th>Code</th>
      <th>Bank Name</th>
     <th>Account Type</th>
-     <th>Account No:</th>
+     <th>Account No.</th>
      <th>Status</th>
      <th>Action</th>
     </tr>

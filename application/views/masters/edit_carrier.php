@@ -1,7 +1,7 @@
 
 <section class="content-header">
  <h1>
-  Edit Bank
+  Edit Carrier
  </h1>
 </section>
  <section class="content">
@@ -13,21 +13,19 @@
                   
                     
                   <div class="row">
-                 
-                  <div class="form-group col-md-6">
-                      <label for="exampleInputname1">Code</label>
-                      <input type="hidden" name="id" id="id"  value="<?php  echo $value[0]->id;?>" />
-                      <input type="text" id="code"  name="code" class="form-control" readonly="readonly" placeholder="<?php  echo $value[0]->code;?>"  value="<?php  echo $value[0]->code;?>">
-                    </div>
-                    <div class="form-group col-md-6 ">
+                  <div class="form-group col-md-6 ">
                       <label>Carrier Type</label>
                       <select class="form-control" name="carrier_type" id="carrier_type" value="">
-                        <option value="land">land</option>
-                        <option value="transportation">transportation</option>
+                        <option value="land">Land</option>
+                        <option value="transportation">Transportation</option>
                       </select>
                     </div>
+                  <div class="form-group col-md-6">
+                      <label for="exampleInputname1">Code</label>
+                      <input type="text" id="code"  name="code" class="form-control"readonly="readonly" placeholder="<?php  echo $value[0]->code;?>"  value="<?php  echo $value[0]->code;?>">
+                    </div>
                                 <div class="form-group col-md-6">
-                      <label for="exampleInputname1">Name*</label>
+                      <label for="exampleInputname1">Name</label>
                       <input type="text" id="name"  name="name" class="form-control"  value="<?php  echo $value[0]->name;?>" id="name" placeholder="Enter name" >
                       <input type="hidden" name="id" id="id"  value="<?php  echo $value[0]->id;?>" />
                     </div>

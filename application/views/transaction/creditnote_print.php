@@ -53,7 +53,7 @@
                     </table>
                     <div class="textcenters" style="display: flex; align-items: center; justify-content: center; border-top: solid #7d7676 1px; border-bottom: solid #7d7676 1px; margin-bottom: 15px; margin-top: 15px;">
                         <h3>Credit Note<br />
-                        اشعار دائن
+                        ملاحظات الائتمان
                     </div>
                     
                     <table class="table tab1" style="margin-bottom: -4px;">
@@ -99,7 +99,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="border: 1px solid black;"><b>Consignee Details</b> <span class="fr"><b>المرسل إليه </b></span></td>
+                                            <td style="border: 1px solid black;"><b>Consignee Details</b> <span class="fr"><b> المرسل إليه </b></span></td>
                                         </tr>
                                         <tr style="height: 93px; font-size: 13px;">
 
@@ -144,7 +144,7 @@
                                                 </tr>
                                                
                                                 <tr>
-                                                    <td style="border: 1px solid black;"><b>Awb / Mwb</b><span class="fr">--</span> </td>
+                                                    <td style="border: 1px solid black;"><b>Hawb / Mawb</b><span class="fr">الحب / موب</span> </td>
                                                 </tr>
                                                 <tr>
 
@@ -240,7 +240,7 @@
                                             <td style="border: 1px solid black; border-right: hidden; border-left: hidden;"></td>
                                         </tr>
                                         <tr>
-                                            <td style="border: 1px solid black;"><b>Estimated Time of Departure</b><span class="fr"><b>رقم المورد</b>  </span></td>
+                                            <td style="border: 1px solid black;"><b>Estimated Time of Departure</b><span class="fr"><b> الوقت المتوقع للمغادرة</b>  </span></td>
                                         </tr>
                                         <tr>
 
@@ -251,7 +251,7 @@
                                         </tr>
 
                                            <tr>
-                                            <td style="border: 1px solid black;"><b>Estimated Time of Arrival</b><span class="fr"><b>رقم المورد</b>  </span></td>
+                                            <td style="border: 1px solid black;"><b>Estimated Time of Arrival</b><span class="fr"><b> الوقت المقدر للوصول</b>  </span></td>
                                         </tr>
                                         <tr>
 
@@ -275,7 +275,7 @@
                                 <tr>
                                     <th class="ctr" width="6.5%"><b>Sl No:</b>
                                         <label>
-                                            الرقم السلسل
+                                        SL. لا: 
                                         </label>
                                     </th>
                                     <th width="46.2%">Item Description
@@ -284,13 +284,13 @@
                                     <th class="ctr" width="10.5%">Unit Price
                                         <label>سعر الوحدة </label>
                                     </th>
-                                    <th class="ctr" width="10%">Qty
-                                        <label>الكمية </label>
+                                    <th class="ctr" width="10%">Quantity
+                                        <label>كمية </label>
                                     </th>
                                     <!-- <th width="13.2%">Vat
                                         <label class="rtl">ضريبة القيمة المضافة</label></th> -->
                                     <th width="12.3%">Amount
-                                        <label class="rtl">المبلغ </label>
+                                        <label class="rtl">كمية </label>
                                     </th>
                                 </tr>
                             </thead>
@@ -307,7 +307,7 @@
                                             </td>
                                             <td>
                                                 <span id="rptrDetail_lblDesc_0"><?php echo $value->Description;?></span>
-                                                <span id="rptrDetail_lblDescAr_0" style="float: right;">رسوم الشحن البري </span>
+                                                <!-- <span id="rptrDetail_lblDescAr_0" style="float: right;">رسوم الشحن البري </span> -->
                                             </td>
                                             <td style="text-align: center;">
                                             <?php echo $value->UnitPrice;echo " (".$value->Currency." - ".$value->ConvFactor.")";?> 
@@ -344,7 +344,7 @@
 
                                     </td>
                                     <td colspan="3">Vat Total
-                                        <label class="rtl">ضريبة القيمة المضافة</label></td>
+                                        <label class="rtl">ضريبة القيمة المضافة المجموع</label></td>
                                     <td style="text-align: center;">
                                         <span id="lblVatTotal"> <?php echo $creditdata[0]->Vat;?></span></td>
                                 </tr>

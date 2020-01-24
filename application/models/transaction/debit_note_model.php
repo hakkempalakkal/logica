@@ -182,5 +182,15 @@ class Debit_note_model extends CI_Model {
         
        
        } 
+       public function list_currency()
+       {
+       
+       $this->db->select('*');
+       $this->db->from('mst_currency');
+       $query = $this->db->get();
+       $result = $query->result();
+       return $result;
+       
+       }   
    
 }

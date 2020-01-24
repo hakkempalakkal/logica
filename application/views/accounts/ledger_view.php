@@ -3,7 +3,11 @@
 // var_dump($code[0]);
 // die();
 ?>
-
+<section class="content-header">
+ <h1>
+ Ledger View
+ </h1>
+</section>
  <section class="content">
     <div class="box box-success">
        <div class="box-body">
@@ -39,61 +43,122 @@
                                 
                          
 </div>
+                  <!-- <div class="box-footer">
+                    <button type="button"  onclick="store();" class="btn btn-success">Save</button>
+                    <button type="reset"  class="btn btn-success">Cancel</button>
+                  </div> -->
                 </form>
-                </div>
-                <div class="box-body">
-                     <table class="table">
-                      <thead style="background-color:#abc5b1; color:#fff;">
-                          <tr>
-                            <th style="width:200px">Date</th>
-                            <th style="width:500px">Purticular</th>
-                             <th style="width:500px">Voucher Type</th>
-                            <th style="text-align:right;"> Debit Balance</th>
-                            <th style="text-align:right;">Credit Balance</th>
-                          <tr>
-                      </thead>
-                      <tbody>
-                        <?php 
-                       
-                       if($data!=""){  ?>
-                           
-                      <tr style="background-color:#f5f5f5; font-weight:500;">
-                            <td colspan="3">Opening Balance</td>
-                            <td style="text-align:right;"><?php echo number_format((float)$summery[0]->opDebitAccount, 2, '.', ''); ?></td>
-                            <td style="text-align:right;"><?php echo number_format((float)$summery[0]->opCreditAccount, 2, '.', ''); ?></td>
-                          </tr>
-                       <?php      
-                     $credittotal=0;
-                     $debittotal=0;
-                         foreach ($ledgerview as $key => $values){
-                           $credittotal=$credittotal+( (float)$values->Credit);
-                       $debittotal=$debittotal+( (float)$values->Debit);
-                        ?>
-                          <tr>
-                               <td><?php echo $values->TransDate; ?></td>
-                            <td><?php echo $values->Purticular; ?></td>
-                             <td><?php echo $values->VoucherType; ?></td>
-                            <td style="text-align:right;"><?php echo number_format((float)$values->Debit, 2, '.', ''); ?></td>
-                            <td style="text-align:right;"><?php echo number_format((float)$values->Credit, 2, '.', ''); ?></td>
-                          </tr>
-                       <?php } ?>
-                        <tr style="background-color:#f5f5f5; font-weight:500;">
-                            <td colspan="3">Total</td>
-                            <td style="text-align:right;"><?php echo number_format((float)$debittotal, 2, '.', ''); ?></td>
-                            <td style="text-align:right;"><?php echo number_format((float)$credittotal, 2, '.', ''); ?></td>
-                          </tr>
-                           <tr style="background-color:#f5f5f5; font-weight:500;">
-                            <td colspan="3">Closing Balance</td>
-                            <td style="text-align:right;"><?php echo number_format((float)$summery[0]->cbDebitAccount, 2, '.', ''); ?></td>
-                            <td style="text-align:right;"><?php echo number_format((float)$summery[0]->cbCreditAccount, 2, '.', ''); ?></td>
-                          </tr>
-                          <?php } ?>
-                      </tbody>
-                    </table>
+                <div id="divexport">
+                                 <div id="ContentPlaceHolder1_up_GridLedgerViewDetails">
+	
 
-                </div>
-                </div>
-                        </section>
+                
+    <div style="width:100%; float:none;">
+   <div style=" background-color:White; color:Black; width: 100%; float:left;position:relative; top: 0px; left: 0px;">
+   <div id="CashbookmHead" style=" width:100%; background-color: rgba(82, 107, 1, 1); color: #FFFFFF; height: 23px;font-size:17px;border:solid 1px gray">
+ 
+
+    
+    
+    <div style=" width:10%; float:left;">Date</div>
+    <div style=" width:50%; float:left;">Particular</div>
+     <div style=" width:20%; float:left;">Voucher Type</div>
+     <div style=" width:10%; float:left; text-align:right;">Credit</div>
+    <div style=" width:10%; float:left; text-align:right; padding-right: 5px;">Debit</div>
+    </div>
+    </div>
+                                             
+                                                    
+                                                    
+                                                     <div id="Cashbookm" style=" width:100%; ">
+
+                                                        
+                                                             
+                                                       
+                                                       
+
+                                                         <div style=" width:100%; float:left;">
+
+                                                             <div id="Opening Balance" style=" width:100%; font-weight: bold;color:red; font-size:16px">
+
+                                                                 <div style=" width:80%; float:left;">   Opening Balance </div>
+                                                                    
+                                                                 <div style=" width:10%; float:left; text-align:right; border-top-color: #333333; border-bottom-style: solid; border-bottom-width: 1px;">
+
+                                                                     <span id="ContentPlaceHolder1_lblOpeningBalance"></span>
+
+                                                                                 </div>
+
+                                                                 <div style=" width:10%; padding-right: 5px;float:left; text-align:right; border-top-color: #333333; border-bottom-style: solid; border-bottom-width: 1px;">
+                                                                     0.00
+                                                                     </div>
+                                                             </div>
+
+
+                                                            
+                                                             <div class="">
+                                                           
+                                                             
+                                                             
+
+                                                             </div>
+                                                             
+                                                             
+                                                               <div id="Totalofall" style=" width:100%; font-weight: bold; color:#000000; font-size:16px">
+                                                                 <div style=" width:80%; float:left;">
+                                                                     Total</div>
+                                                                 <div style=" border-top: 1px solid #333333; width:10%; float:left; text-align:right; border-bottom-style: solid; border-bottom-width: 1px;">
+                                                                      <span id="ContentPlaceHolder1_lblDebitTotal"></span></div>
+                                                                 <div style=" border-top: 1px solid #333333;padding-right: 5px; width:10%; float:left; text-align:right; border-bottom-style: solid; border-bottom-width: 1px;">
+                                                                     <span id="ContentPlaceHolder1_lblCreditTotal"></span></div>
+                                                             
+                                                             <div id="Closing Balance" style=" width:100%; font-weight: bold; color:red;">
+                                                                 <div style=" width:80%; float:left;">
+                                                                     Closing Balance</div>
+                                                                 <div style=" width:10%; float:left; text-align:right; border-top-color: #333333; border-bottom-style: solid; border-bottom-width: 1px;">
+                                                                     0.00</div>
+                                                                 <div style=" width:10%; padding-right: 5px; float:left; text-align:right; border-top-color: #333333; border-bottom-style: solid; border-bottom-width: 1px;">
+                                                                     <span id="ContentPlaceHolder1_lblClosingBalance"></span></div>
+                                                             </div>
+                                                         </div>
+
+                                                     </div>
+                                                     
+                                                     </div>                                                   
+                                                       <br>
+                                                     <br>
+                                            
+     
+                                                
+
+                                </div>
+
+
+<div style="width:100%; background-color: rgba(82, 107, 1, 1); color: #FFFFFF; height: 23px; font-weight:bold;float:left;">
+
+
+<div style="float:left; width:548px;"> </div>
+<div style="float:left; width:92px; text-align:right;">
+    <span id="ContentPlaceHolder1_lblopen"></span></div>
+<div style="float:left; width:172px; text-align:right;"><span id="ContentPlaceHolder1_lblclose"></span></div>
+
+</div>
+                                     
+
+
+
+
+
+
+                                 </div>
+                             
+                        
+&nbsp;
+                                 
+</div>
+</div>
+</div>
+          </section>
           <script src="<?php echo base_url(); ?>/assets/js/moment.js"></script>
           <script src="<?php echo base_url(); ?>/assets/js/alert.js"></script>
           <!-- <script src="<?php echo base_url(); ?>/assets/user_scripts/masters/bank.js"></script> -->

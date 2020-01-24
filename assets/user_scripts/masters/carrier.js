@@ -5,8 +5,9 @@
       var now = moment().format('YYYY-MM-DD h:mm:ss a');
   
       postData = {
-            "code": $('#code').val(),
+      
             "carrier_type": $('#carrier_type').val(),
+            "code": $('#code').val(),
             "name": $('#name').val(),
             "contact": $('#contact').val(),
             "address": $('#address').val(),

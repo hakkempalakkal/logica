@@ -19,13 +19,13 @@
     dataType: 'JSON'
     });
     request.done( function ( data ) {
-console.log(data);
-    if(!alert('permission Created Successfully....!!!!!!!!!!')){window.location.href="permission"}
+
+    if(!alert('permission Created Successfully!')){window.location.href="permission"}
     });
     request.fail( function ( jqXHR, textStatus) {
       if (jqXHR.responseText=="success")
       {
-       if(!alert('permission created Successfullyertgrdegr!')){window.location.href="permission"}
+       if(!alert('permission created Successfully!')){window.location.href="permission"}
    
       }
     });
@@ -54,18 +54,15 @@ console.log(data);
     dataType: 'JSON'
     });
     request.done( function ( data ) {
-      console.log(data);
-     if(!alert('permission Created Successfullyyyyy!')){window.location.href="permission"}
-     });
-     // request.fail( function ( jqXHR, textStatus) {
- 
-     // });
-     request.fail( function ( jqXHR, textStatus) {
-      
-       if (jqXHR.responseText=="success")
-       {
-        if(!alert('permission created Successfully......!')){window.location.href="permission"}
-    
-       }
-      });
-   }
+   
+    if(!alert('permission updated Successfully!')){window.location.href="permission"}
+    });
+    request.fail( function ( jqXHR, textStatus) {
+     
+     if (jqXHR.responseText=="success")
+     {
+      if(!alert('permission updated Successfully!')){window.location.href="permission"}
+  
+     }
+    });
+  }

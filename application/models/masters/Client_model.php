@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Client_model extends CI_Model {
 
-
+//insert client
 public function add($data)
 {
     $this->db->where('code', $data['code']);
@@ -14,9 +14,38 @@ public function add($data)
     } else {
        
         $this->db->insert('mst_client',$data);
-        return "success";
+        $clientid=   $this->db->insert_id();
+        return $clientid;
+        
+    
+
     }
 }
+//select client name
+// public function client_name($clientid)
+// {
+//  $this->db->where('id', $clientid);
+// $this->db->select('name');
+// $this->db->from('mst_client');
+// $query = $this->db->get();
+// $clientname = $query->result();
+// return $clientname;
+
+// }
+
+// public function addto_accountsledger($clientname)
+// {
+//   $query1="insert into accounts_ledger(LedgerGroupID,Ledger_Name) values(9,$clientname)";
+//   $accountsid=   $this->db->insert_id();
+//   return $accountsid;
+// }
+// public function addto_clientledger($clientid,$accountsid)
+// {
+//   $query2="insert into accounts_client_ledger(client_id,ledger_id) values($clientid,$accountsid)"; 
+//   return 1;
+// }
+
+
 public function list()
 {
 

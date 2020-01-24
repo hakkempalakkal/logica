@@ -14,11 +14,12 @@
                 <thead>
                   <tr>
                    
-                    <th>Code</th>
-                    <th>SUpplier Name</th>
+                     
+                  <th>Code</th>
+                    <th>Shipper Name</th>
                     <th>Contact Person</th>
-                    <th>Address</th>
-                    <th>Mobile/th>
+                    <th>Address/th>
+                    <th>Mobile</th>
                     <th>Email</th>
                     <th>Status</th>
                     <th>Action</th>

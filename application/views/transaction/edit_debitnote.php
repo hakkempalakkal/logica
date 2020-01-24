@@ -108,10 +108,15 @@
                                  <label class="control-label">Currency</label>
                                  <select class="form-control" id="unit_price" name="unit_price"  value="--Select Type--">
                                     <option value="bank">--Select Type--</option>
-                                    <option value="INR">INR</option>
-                                    <option value="EUR">EUR</option>
-                                    <option value="USD">USD</option>
-                                    <option value="AED">AED</option>
+                                    <?php 
+
+foreach($currencylist as $currency)
+{ 
+  echo '<option value="'.$currency->currency.'" id="'.$currency->id.'">'.$currency->currency.'</option>';
+  
+
+}
+?>
                                  </select>
                               </div>
                               <div class="form-group col-md-1">

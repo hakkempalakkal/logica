@@ -29,6 +29,7 @@ class Creditnote_Controller extends CI_Controller {
         $result['jobdata']=$this->Credit_note_model->select_job_details($id);
 		$result['code']=$this->Credit_note_model->selectcode();
 		$result['job']=$this->Credit_note_model->select_all_job();
+		$result['currencylist']=$this->Credit_note_model->list_currency();
 		$this->load->view('includes/header',$user_image);
 		$this->load->view('includes/navigation',$result,$user_image);
 		$this->load->view('transaction/creditnote',$result);
@@ -83,7 +84,7 @@ public function credit_note_details()
 			   $user_image['values']=$res[0]->user_image;
 			$result['permission']=$this->Login_model->select_all_menu($user_id);
 			// $data['bank']=$this->Credit_note_model->select_all_bank();
-	
+			$data['currencylist']=$this->Credit_note_model->list_currency();
 			$data['creditdata']=$this->Credit_note_model->edit_creditnotedetails($creditid);
 			// var_dump($data['expensedata']);
 			// die();

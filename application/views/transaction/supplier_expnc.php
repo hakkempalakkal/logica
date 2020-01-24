@@ -35,8 +35,6 @@
   display: none;
 }
   </style>
-  	<link href="<?php echo base_url(); ?>/assets/invoicereport/style.css" rel="stylesheet" />
-
 <script src="<?php echo base_url(); ?>/assets/plugins/iCheck/icheck.min.js"></script>
 <script src="<?php echo base_url(); ?>/assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
 <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
@@ -63,7 +61,7 @@
                      <div class="row">
           <div class="form-group col-md-1">
                     <label class="control-label">Exp Id</label>
-                    <input type="hidden" name="id" id="id"  value="<?php  echo $job[0]->JobId; ?>" />
+                    <input type="hidden" name="id" id="jobid"  value="<?php  echo $jobdata[0]->JobId; ?>" />
               
                     <input   type="text" id="post_code" required="required" class="form-control" readonly="readonly"  placeholder="<?php echo $code[0]->PostId+1;?>"  value="<?php echo $code[0]->PostId+1;?>"/>
                 </div>
@@ -119,10 +117,16 @@
                                  <label class="control-label">Currency</label>
                                  <select class="form-control" id="unit_price" name="unit_price"  value="--Select Type--">
                                     <option value="bank">--Select Type--</option>
-                                    <option value="INR">INR</option>
-                                    <option value="EUR">EUR</option>
-                                    <option value="USD">USD</option>
-                                    <option value="AED">AED</option>
+                                    
+                                    <?php 
+
+foreach($currencylist as $currency)
+{ 
+  echo '<option value="'.$currency->currency.'" id="'.$currency->id.'">'.$currency->currency.'</option>';
+  
+
+}
+?>
                                  </select>
                               </div>
                               <div class="form-group col-md-1">
@@ -294,4 +298,3 @@
   
   });
   </script>
-  	<script src="<?php echo base_url(); ?>/assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>

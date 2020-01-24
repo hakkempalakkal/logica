@@ -180,7 +180,6 @@ $route['currency-update'] = 'masters/Currency/update';
 
 //Accounts
 
-//create ledger
 $route['create-ledger-group'] = 'accounts/Ledger_group/create_ledger_group';
 $route['create-ledger'] = 'accounts/Ledger/create_ledger';
 $route['accounts-entry'] = 'accounts/Accounts_entry/accounts_entry';
@@ -189,9 +188,6 @@ $route['trial-balance'] = 'accounts/Trial_balance/index';
 $route['balance-sheet'] = 'accounts/Balance_sheet/index';
 $route['ledger-view'] = 'accounts/Ledger_view/index';
 
-$route['trial-balanceview'] = 'accounts/Trial_balance/gettrialbalance';
-
-$route['find-ledger-view'] = 'accounts/Ledger_view/getledgerviewdata';
 
 
 //js ledger group
@@ -212,51 +208,6 @@ $route['add-accounts-entry'] = 'accounts/Accounts_entry/store';
 //js day book
 $route['find-day-book'] = 'accounts/Day_book/finddata';
 
-
-
-
-
-//transaction
-
-$route['job'] = 'transaction/Transaction/index';
-$route['transportation-store'] = 'transaction/Transaction/store';
-$route['transportation-update'] = 'transaction/Transaction/update';
-$route['transportation-description/(:any)'] = 'transaction/Transaction/getdescription/$1';
-//job-view
-$route['job-view'] = 'job-view/Job_view/index';
-
-//job-invoice
-$route['job-invoice/(:any)'] = 'transaction/Job_invoice_controller/job_invoice/$1';
-$route['job-invoice/job-invoice-description/(:any)'] = 'transaction/Job_invoice_controller/getdata/$1';
-$route['insert-job-details'] = 'transaction/Job_invoice_controller/insert_job_details';
-//print invoice
-$route['invoice-print/(:any)'] = 'transaction/Job_invoice_controller/invoice_print/$1';
-// change-invoice-status
-$route['change-invoice-status/(:any)'] = 'transaction/Job_invoice_controller/change_invoice_status/$1';
-
-//edit job invoice
-$route['edit-job-invoice/(:any)'] = 'transaction/Job_invoice_controller/edit_job_invoice/$1';
-$route['update-job-details'] = 'transaction/Job_invoice_controller/update_jobInvoice_details';
-//Job Supplier Payment
-$route['job-supplier-payment/(:any)'] = 'transaction/Job_supplier_payment_controller/index/$1';
-$route['job-supplier-payment-get-client-details/(:any)'] = 'transaction/Job_supplier_payment_controller/select_client_details/$1';
-$route['insert-job-supplier-payment-details'] = 'transaction/Job_supplier_payment_controller/insert_supplier_payment';
-$route['edit-job-supplier-payment/(:any)'] = 'transaction/Job_supplier_payment_controller/edit_job_supplier_payment/$1';
-$route['update-supplier-payment'] = 'transaction/Job_supplier_payment_controller/update_supplier_payment';
-$route['print-supplier-payment/(:any)'] = 'transaction/Job_supplier_payment_controller/print_supplier_payment/$1';
-$route['list-supplier'] = 'transaction/Job_supplier_payment_controller/list_supplier';
-
-//edit_job_supplier_payment_receipt
-$route['payment-receipt/(:any)'] = 'transaction/Payment_receipt_controller/receipt/$1';
-$route['payment-receipt-get-client-details/(:any)'] = 'transaction/Payment_receipt_controller/payment_receipt_select_client_details/$1';
-$route['insert-payment-receipt-details'] = 'transaction/Payment_receipt_controller/insert_payment_receipt';
-$route['edit-payment-receipt-details/(:any)'] = 'transaction/Payment_receipt_controller/edit_job_payment_receipt/$1';
-$route['update-payment-receipt-details'] = 'transaction/Payment_receipt_controller/update_payment_receipt_details';
-$route['payment-receipt-print/(:any)'] = 'transaction/Payment_receipt_controller/payment_receipt_print/$1';
-
-////salu
-
-
 //transaction
 //add job
 $route['job'] = 'transaction/Transaction/index';
@@ -265,10 +216,16 @@ $route['transportation-update'] = 'transaction/Transaction/update';
 $route['transportation-description/(:any)'] = 'transaction/Transaction/getdescription/$1';
 $route['transportation-jobdetails/(:any)'] = 'transaction/Transaction/jobdetails/$1';
 $route['transportation-estimate'] = 'transaction/Transaction/store_estimate';
-// //invoice
-// $route['job-view'] = 'job-view/Job_view/index';
-// $route['job-invoice/(:any)'] = 'transaction/Job_invoice_controller/index/$1';
-// $route['job-invoice/job-invoice-description/(:any)'] = 'transaction/Job_invoice_controller/getdata/$1';
+//invoice
+//job-invoice
+$route['job-invoice/(:any)'] = 'transaction/Job_invoice_controller/job_invoice/$1';
+$route['job-invoice/job-invoice-description/(:any)'] = 'transaction/Job_invoice_controller/getdata/$1';
+$route['insert-job-details'] = 'transaction/Job_invoice_controller/insert_job_details';
+//print invoice
+$route['invoice-print/(:any)'] = 'transaction/Job_invoice_controller/invoice_print/$1';
+//edit job invoice
+$route['edit-job-invoice/(:any)'] = 'transaction/Job_invoice_controller/edit_job_invoice/$1';
+$route['update-job-details'] = 'transaction/Job_invoice_controller/update_jobInvoice_details';
 //supplier expense
 
 
@@ -306,7 +263,10 @@ $route['pending-bills'] = 'reports/Reports/pending_bills';
 //job search
 $route['job-search'] = 'jobsearch/Job_Search/job_search';
 
-$route['job-description/(:any)'] = 'jobsearch/job_Search/job_description/$1';
-
 //supplier search
 $route['supplier-search'] = 'suppliersearch/Supplier_Search/supplier_search';
+$route['supplier-data/(:any)'] = 'suppliersearch/Supplier_Search/get_supplierdetails/$1';
+
+//client search
+$route['client-search'] = 'clientsearch/Client_Search/client_search';
+$route['client-data'] = 'clientsearch/Client_Search/get_clientsearchdetails';

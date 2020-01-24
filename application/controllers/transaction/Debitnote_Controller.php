@@ -30,7 +30,7 @@ class Debitnote_Controller extends CI_Controller {
 		$result['permission']=$this->Login_model->select_all_menu($user_id);
         $result['job']=$this->Debit_note_model->select_all_job();
         $result['jobdata']=$this->Debit_note_model->select_job_details($id);
-      
+		$result['currencylist']=$this->Debit_note_model->list_currency();
         $result['code']=$this->Debit_note_model->selectcode();
 		$this->load->view('includes/header',$user_image);
 		$this->load->view('includes/navigation',$result,$user_image);
@@ -85,7 +85,7 @@ public function debit_note_details()
 			 $user_image['values']=$res[0]->user_image;
 		  $result['permission']=$this->Login_model->select_all_menu($user_id);
 		  // $data['bank']=$this->Debit_note_model->select_all_bank();
-  
+		  $data['currencylist']=$this->Debit_note_model->list_currency();
 		  $data['debitdata']=$this->Debit_note_model->edit_debitnotedetails($debitid);
 		  // var_dump($data['expensedata']);
 		  // die();

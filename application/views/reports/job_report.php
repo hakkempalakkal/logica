@@ -8,7 +8,9 @@
            <div class="box-header with-border">
            <h3 class="box-title"> JOB REPORT </h3>
            </div>
+           
             <div class="box-body">
+    
                <table id="mytable" class="table table-stripped">
                   <thead>
                      <tr>

@@ -15,7 +15,7 @@
                   <div class="row">
                   <div class="form-group col-md-6">
                       <label for="exampleInputname1">Code</label>
-                      <input type="text" id="code"  name="code" class="form-control" readonly="readonly" placeholder="<?php  echo $value[0]->code;?>"  value="<?php  echo $value[0]->code;?>">
+                      <input type="text" id="code"  name="code" class="form-control" readonly="readonly" placeholder="<?php  echo $value[0]->code;?>"  value="<?php  echo $value[0]->code;?>" >
                     </div>
                                 <div class="form-group col-md-6">
                       <label for="exampleInputname1">Name</label>
@@ -23,7 +23,7 @@
                       <input type="hidden" name="id" id="id"  value="<?php  echo $value[0]->id;?>" />
                     </div>
                     <div class="form-group col-md-6 ">
-                      <label>Accnout Type</label>
+                      <label>Account Type</label>
                       <select class="form-control" name="acc_type" id="acc_type">
                       <option selected="selected" value="<?php  echo $value[0]->acc_type;?>"><?php  echo $value[0]->acc_type;?></option>
                      <?php if($value[0]->acc_type!="savings"){ ?>  <option value="savings">Savings</option><?php } ?> 
@@ -50,7 +50,7 @@
 								
                                 </div>
                                 <div class="form-group col-md-6">
-									<label>Other Information If Any</label>
+									<label>Other Information if any</label>
 									
 										<input type="text" class="form-control" id="otherinfo" name="otherinfo" value="<?php  echo $value[0]->other_info;?>" >
 								

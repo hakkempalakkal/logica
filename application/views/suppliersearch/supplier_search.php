@@ -1,45 +1,76 @@
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+  .ui-autocomplete {
+    position: absolute;
+    z-index: 1000;
+    cursor: default;
+    padding: 0;
+    margin-top: 2px;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.ui-autocomplete > li {
+  padding: 3px 20px;
+}
+.ui-autocomplete > li.ui-state-focus {
+  background-color: #DDD;
+}
+.ui-helper-hidden-accessible {
+  display: none;
+}
+  </style>
 <section class="content">
 
       <div class="row">
         <div class="col-md-3">
  <!-- search form -->
-           <form action="#" method="get">
+         
             <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search..."/>
+              <input type="text"  class="form-control"  id="supplier_name" placeholder="Search supplier"/>
+              <input maxlength="100" type="hidden" id="supplier_id" class="form-control" value="">
+              <input maxlength="100" type="hidden" id="supplierexpense_id" class="form-control" value="">
               <span class="input-group-btn">
-                <button type='submit' name='seach' id='search-btn' class="btn btn-flat" ><i class="fa fa-search"></i></button>
+             
+                <button type='submit' class="btn btn-flat"  onclick="get_supplier_data();" ><i class="fa fa-search" ></i></button>
               </span>
             </div>
-          </form> 
+        
           <!-- /.search form -->
           <!-- Profile Image -->
-          <h4 class="box-title">Supplier Details </h4>
-          <div class="box">
+          <h4 class="box-title" id="suppliertitle">Supplier Details </h4>
+          <div class="box" id="supplierdescription">
             <div class="box-body box-profile">
             <div class="box-body">
                         <strong><i class=""></i> Supplier Name</strong>
-                        <p class="text-muted" id="job_id">
-                           <!-- <?php echo $jobdata[0]->JobId;?> -->
+                        <p class="text-muted" id="suppliername">
+                          
                         </p>
                         <hr>
                         <strong><i class=""></i> Contact Person</strong>
-                        <p class="text-muted">   
-                             <!-- <?php echo $jobdata[0]->Shipper;?> -->
+                        <p class="text-muted" id="contactperson">   
+                           
                     </p>
                         <hr>
                         <strong><i class=""></i> Address</strong>
-                        <p class="text-muted">  
-                              <!-- <?php echo $jobdata[0]->Consignee;?>  -->
+                        <p class="text-muted" id="address">  
+                             
                             </p>
                         <hr>
                         <strong><i class=""></i> Country </strong>
-                        <p> 
-                            <!-- <?php echo $jobdata[0]->client_name;?> -->
+                        <p id="country"> 
+                          
                         </p>
                         <hr>
                         <strong><i class=""></i>Phone Number</strong>
-                        <p>
-                             <!-- <?php echo $jobdata[0]->Type;?> -->
+                        <p id="phone">
+                          
                              </p>
                        
                        
@@ -62,7 +93,7 @@
                <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                   <span class="description-text">TOTAL SUPPLIER INVOICE</span>
-                    <h5 class="description-header"></h5>
+                    <h5 class="description-header" id="supplierinvtotal" style="color:green">00.0</h5>
                    
                   </div>
                   <!-- /.description-block -->
@@ -70,7 +101,7 @@
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                   <span class="description-text">SUPPLIER INVOICE PAID</span>
-                    <h5 class="description-header"></h5>
+                    <h5 class="description-header" id="supplierinvpaid" style="color:green">00.0</h5>
                     
                   </div>
                   <!-- /.description-block -->
@@ -78,13 +109,13 @@
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                   <span class="description-text">BALACE DUE </span>
-                    <h5 class="description-header"></h5>
+                    <h5 class="description-header" id="dueamount" style="color:red">00.0</h5>
                   </div>
                   <!-- /.description-block -->
                 </div>
             
                </div>
-               <br>
+               <br><br><br>
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="false">Supplier Ledger</a></li>
               <li class=""><a href="#settings" data-toggle="tab" aria-expanded="true">Supplier Expense</a></li>
@@ -101,7 +132,7 @@
            </div>
    
             <div class="box-body">
-               <table id="jobledger" class="table table-stripped">
+               <table id="supplierledger" class="table table-stripped">
                   <thead>
                      <tr>
                         <th> Sl.no</th>
@@ -113,24 +144,10 @@
                        
                      </tr>
                   </thead>
-                  <!-- <tbody>
-                     <?php 
-                        foreach ($values as $key => $value1)
-                         {  
-                        	?>
-                     <tr>
-                        <td class="text-center"><?php echo $value1->Number;?></td>
-                        <td class="text-center"><?php echo $value1->Date;?></td>
-                        <td class="text-center"><?php echo $value1->Shipper;?></td>
-                        <td class="text-center"><?php echo $value1->Consignee;?></td>
-                        <td class="text-center"><?php echo $value1->client_name;?></td>
-                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
-                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
-                        <td class="text-center"><?php echo $value1->Type;?></td>
-                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
-                     </tr>
-                     <?php } ?>
-                  </tbody> -->
+                   <tbody class="ledgerdatatable"> 
+                     
+                     
+                  </tbody>
                </table>
                          </div>
       </div>
@@ -150,12 +167,12 @@
          <div class="box">
            <div class="box-header with-border">
           
-           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Post New Expense </a></span>
+         
            </div>
            
             <div class="box-body">
     
-               <table id="invoicereport" class="table table-stripped">
+               <table id="postedexpense" class="table table-stripped">
                   <thead>
                      <tr>
                         <th> Sl.no</th>
@@ -164,29 +181,16 @@
                         <th> Particulars</th>
                         <th> Ref/Inv</th>
                         <th> Supplier</th>
-                      
-                        <th>  Amount#</th>
+                        <th>  Amount</th>
+                        <th>  #</th>
 
                      </tr>
+                
                   </thead>
-                  <!-- <tbody>
-                     <?php 
-                        foreach ($values as $key => $value1)
-                         {  
-                        	?>
-                     <tr>
-                        <td class="text-center"><?php echo $value1->Number;?></td>
-                        <td class="text-center"><?php echo $value1->Date;?></td>
-                        <td class="text-center"><?php echo $value1->Shipper;?></td>
-                        <td class="text-center"><?php echo $value1->Consignee;?></td>
-                        <td class="text-center"><?php echo $value1->client_name;?></td>
-                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
-                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
-                        <td class="text-center"><?php echo $value1->Type;?></td>
-                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
-                     </tr>
-                     <?php } ?>
-                  </tbody> -->
+                  <tbody class="postedexpensedetails">
+                    
+                  </tbody>
+                  <!-- <tr><td colspan=""><label style="float: right;" id="exptotal">Total Expenditure :</label></td></tr> -->
                </table>
             </div>
          </div>
@@ -201,7 +205,7 @@
          <div class="box">
            <div class="box-header with-border">
        
-           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Debitnote </a></span>
+          
            </div>
            
             <div class="box-body">
@@ -216,29 +220,15 @@
                         <th> Ref/Inv</th>
                         <th> Supplier</th>
                       
-                        <th>  Amount#</th>
+                        <th>  Amount</th>
 
                         
                      </tr>
                   </thead>
-                  <!-- <tbody>
-                     <?php 
-                        foreach ($values as $key => $value1)
-                         {  
-                        	?>
-                     <tr>
-                        <td class="text-center"><?php echo $value1->Number;?></td>
-                        <td class="text-center"><?php echo $value1->Date;?></td>
-                        <td class="text-center"><?php echo $value1->Shipper;?></td>
-                        <td class="text-center"><?php echo $value1->Consignee;?></td>
-                        <td class="text-center"><?php echo $value1->client_name;?></td>
-                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
-                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
-                        <td class="text-center"><?php echo $value1->Type;?></td>
-                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
-                     </tr>
-                     <?php } ?>
-                  </tbody> -->
+                  <tbody class="debitnotedata">
+                    
+                  </tbody>
+                
                </table>
             </div>
          </div>
@@ -253,7 +243,7 @@
          <div class="box">
            <div class="box-header with-border">
         
-           <span class="new-button" style="float: right;"><a href="<?php echo base_url(); ?> " class="btn btn-success btn-sm" ><span class="fa fa-plus"></span> &nbsp;Create Supplier Payment </a></span>
+          
            </div>
            
             <div class="box-body">
@@ -269,27 +259,13 @@
                         <th> Ref/Invoice</th>
                         <th> Supplier</th>
                       
-                      <th>  Amount#</th>
+                      <th>  Amount</th>
                      </tr>
                   </thead>
-                  <!-- <tbody>
-                     <?php 
-                        foreach ($values as $key => $value1)
-                         {  
-                        	?>
-                     <tr>
-                        <td class="text-center"><?php echo $value1->Number;?></td>
-                        <td class="text-center"><?php echo $value1->Date;?></td>
-                        <td class="text-center"><?php echo $value1->Shipper;?></td>
-                        <td class="text-center"><?php echo $value1->Consignee;?></td>
-                        <td class="text-center"><?php echo $value1->client_name;?></td>
-                        <td class="text-center"><?php echo $value1->shipment_type;?></td>
-                        <td class="text-center"><?php echo $value1->ShipmentTerms;?></td>
-                        <td class="text-center"><?php echo $value1->Type;?></td>
-                        <td class="text-center"><?php echo $value1->CargoDescription;?></td>
-                     </tr>
-                     <?php } ?>
-                  </tbody> -->
+                  <tbody class="supplierpaymentdata">
+                    
+                  </tbody>
+               
                </table>
             </div>
          </div>
@@ -312,3 +288,33 @@
       <!-- /.row -->
 
     </section>
+
+    <script src="<?php echo base_url(); ?>/assets/user_scripts/searchsupplier/supplier_search.js"></script>
+    <script>
+          $(document).ready(function(){
+  
+
+  var obj=[];
+              $.ajax({
+               url: "<?php echo base_url(); ?>suppliersearch/Supplier_Search/getsupplierdata",
+               type: 'post',
+               dataType: "json",
+               success: function( data ) 
+               {
+                   console.log(data);
+                obj=data;
+            
+                $('#supplier_name').autocomplete({
+                              source: obj,
+                              select: function (event, ui) {
+                                  $("#supplier_name").val(ui.item.label);
+                                 $("#supplier_id").val(ui.item.value);
+                                  return false;
+                                  alert("hai");
+                              }
+                          });
+               }
+            });
+  
+  });
+  </script>
